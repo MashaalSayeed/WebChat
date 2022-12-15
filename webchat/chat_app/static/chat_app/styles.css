@@ -1,0 +1,93 @@
+/*
+body {
+    background-color: #2f2f2f;
+    color: white;
+}*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.padding-top-25 {
+    padding-top: 25px;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+.carousel-item {
+    height: 70vh;
+}
+
+.carousel-item h1 {
+    font-size: 7vh;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-size: contain;
+}
+
+
+.featurette-divider {
+    margin: 5rem 0;
+    /* Space out the Bootstrap <hr> more */
+    background-color: black;
+}
+
+
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+.navbar-btn {
+    font-weight: 500;
+}
+
+.base-footer {
+    color: #999;
+    background: #1f4b4e;
+    height: 15vh !important;
+    min-width: 100%;
+}
+
+.navbar {
+    background: #1f4b4e;
+    margin: auto;
+}
+
+.content-block {
+    padding-top: 50px;
+}
+
+.login-frame {
+    align-items: center;
+    padding-top: 12vh;
+    height: 100%;
+}
+
+.login-form {
+    width: 100%;
+    margin: auto;
+}
+
+.login-input, #id_birth_date{
+    height: 35px;
+    width: 100%; 
+    padding: 20px; 
+    margin-bottom: 10px;
+}
+

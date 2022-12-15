@@ -1,0 +1,10 @@
+body {
+    background-color: darkgray;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    margin: 10px 5px 10px 5px;
+    border-radius: 20px;
+}

@@ -1,0 +1,36 @@
+<!-- templates/registration/login.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class='login-frame text-center'>
+    <div class="card mx-auto" style="width: 25rem;">
+        <h1 class="card-header h3 mb-3 font-weight-bold">LOGIN</h1>
+        {% if form.errors %}
+        <p class="card-text text-danger"><b>Your username and password didn't match</b></p>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+        {% endif %}
+        {% endif %}
+
+        <form class="login-form" style="margin: 10px 0px 10px;" method="post" action="{% url 'login' %}">
+            <div class="container">
+                {% csrf_token %}
+
+                <input class="form-control" style="margin: 10px 0px 10px;" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="Enter Your Username">
+                <input class="form-control" style="margin: 10px 0px 10px;" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="Enter Your Password">
+                
+                <button class="btn btn-lg btn-primary btn-block" style="margin-top: 15px;" type="submit">Login</button>
+                <input type="hidden" name="next" value="{{ next }}">
+            </div>
+        </form>
+
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    </div>
+</div>
+{% endblock %}

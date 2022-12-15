@@ -1,0 +1,64 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+{% endblock %}
+
+{% block content %}
+<div class='login-frame' style='padding-top: 5vh; padding-bottom: 5vh'>
+    <div class="card mx-auto" style="width: 27rem;">
+        <h1 class="card-header h3 mb-3 font-weight-bold text-center">SIGN UP</h1>
+
+        <form class="login-form" method="post" action="{% url 'accounts:signup' %}" style="padding-top: 5px;">
+            <div class="container">
+                {% csrf_token %}
+                {% for field in user_form %}
+                <b>
+                {{ field.label_tag }}
+                {% if field.field.required %}
+                <span style="color: red;">*</span>
+                {% endif %}
+                </b>
+                {{ field }}
+
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+
+                <!--
+                {% for field in profile_form %}
+                <b>
+                {{ field.label_tag }}
+                {% if field.field.required %}
+                <span style="color: red;">*</span>
+                {% endif %}
+                </b>
+                {{ field }}
+
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+                -->
+                <button class="btn btn-primary btn-block" style="margin-top: 15px;" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <small class="card-text text-muted text-center" style="margin: 10px;">Already have an account? <a href='/accounts/login'>Log in</a></small>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+<script>
+  $(function () {
+    $("#id_birth_date").datepicker({
+      format:'yyyy-mm-dd',
+      date: '2000-01-01',
+      endDate: new Date().toISOString().slice(0, 10)
+    });
+  });
+</script>
+{% endblock %}

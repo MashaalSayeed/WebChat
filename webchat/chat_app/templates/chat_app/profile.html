@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/chat_app/profile.css">
+{% endblock %}
+
+{% block content %}
+<div class="container bootstrap snippet mx-auto" style="width: 80vw;">
+    <hr>
+    <div class="row">
+        <div class="col-sm-10"><h1>{{ user.username }}'s Profile</h1></div>
+    </div>
+    <div class="row">
+        <div class="col" style="background-color: silver;">
+            <div class="text-center">
+                <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' class='profile-image' alt='Profile Picture'>
+                <h6>Edit Profile Picture</h6>
+                <input type="file" class="file-upload center-block">
+            </div>
+            <hr>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Details <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Username</strong></span> {{ user.username }}</li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Email</strong></span> {{ user.email }}</li>
+            </ul>
+            <hr>
+            <button class="btn btn-danger btn-block" style="margin-bottom: 10px;">Change Password</button>
+        </div>
+        <div class="col" style="background-color: teal;">
+            <h4>Personal Information</h4>
+            <hr>
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label for="first_name">First Name</label>
+                        <input id="id_first_name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="last_name">Last Name</label>
+                        <input id="id_last_name" class="form-control">
+                    </div>
+                </div>
+
+                <label for="id_birth_date">Date Of Birth</label>
+                <input id="id_birth_date" class="form-control">
+                <label for="id_bio">Bio:</label>
+                <textarea class="form-control" id="id_bio" rows="3"></textarea>
+
+                <hr>
+                <div class="btn-group align-self-end float-right">
+                    <button class="btn btn-primary btn-block" style="margin: 5px;">Cancel</button>
+                    <button class="btn btn-primary btn-block" style="margin: 5px;">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
